@@ -20,12 +20,27 @@
     />
 </head>
 <body>
-<h1>Correction du Loup Garous</h1>
-<p>Oui c'est moche j'ai pas encore mis de CSS</p>
+<div>
+    <label for="nbjoueurs">Nombre de joueurs</label>
+    <input type="number" id="nbjoueurs" min="8" max="18">
+    <div>
+        <label>Voyante</label>
+        <input type="checkbox" id="voyante">
+        <label>Sorciere</label>
+        <input type="checkbox" id="sorciere">
+        <label>Petite Fille</label>
+        <input type="checkbox" id="pf">
+        <label>Chasseur</label>
+        <input type="checkbox" id="chasseur">
+    </div>
+    <button id="preparer">Preparer la partie</button>
+    <p id="affichage"></p>
+</div>
 </body>
 <!-- MDB -->
 <script
         type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/8.2.0/mdb.umd.min.js"
 ></script>
+<script src="script.js"></script>
 </html>
