@@ -22,7 +22,8 @@ var nbpf  = 0
 var nbchasseur = 0
 var nbvillageois = 0
 var nbsorciere = 0
-var potionVie , potionMort = 1
+var potionVie  = 1
+var potionMort  = 1
 
 //Fonctions
 
@@ -57,8 +58,35 @@ btnpreparer.onclick = function (){
 //Role Sorciere
 function sorciere() {
     if (nbsorciere !== 0) {
-        var text = "Vous devez designer la victime des loups garous à la sorciere : Demandez à la sorciere si elle souhaite la sauver"
+        var text = "Vous devez designer la victime des loups garous à la sorciere : Demandez à la sorciere si elle souhaite la sauver ; Ensuite si elle souhaite utiliser sa potion de mort, elle doit designer une victime"
 
+
+    }
+}
+btnpVie.onclick = function (){
+    if (potionVie > 0){
+        potionVie = potionVie- 1
+        console.log()
+    }
+    if (potionVie == 0){
+        btnpVie.disabled = true
+    }
+}
+btnpMort.onclick = function (){
+    if (potionMort > 0){
+        potionMort = potionMort- 1
+    }
+    if (potionMort == 0){
+        btnpMort.disabled = true
+    }
+}
+//Bouton supprimer villageois
+btnsVillageois.onclick = function (){
+    if (nbvillageois > 0){
+        nbvillageois = nbvillageois -1
+    }
+    if (nbvillageois == 0){
+        btnsVillageois.disabled = true
     }
 }
 
