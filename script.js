@@ -6,7 +6,14 @@ const hpf = document.getElementById("pf")
 const hchasseur = document.getElementById("chasseur")
 const haffichage = document.getElementById("affichage")
 const btnpreparer = document.getElementById("preparer")
-
+const btnsLG = document.getElementById("sLG")
+const btnsPF = document.getElementById("sPF")
+const btnsVoyante = document.getElementById("sVoyante")
+const btnsSorciere = document.getElementById("sSorciere")
+const btnsChasseur = document.getElementById("sChasseur")
+const btnsVillageois = document.getElementById("sVillageois")
+const btnpVie = document.getElementById("pvie")
+const btnpMort = document.getElementById("pmort")
 
 //Variables Globales
 var nbLG = 0
