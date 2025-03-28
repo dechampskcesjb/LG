@@ -133,12 +133,26 @@ btnsSorciere.onclick = function (){
 btnsChasseur.onclick = function (){
     if (nbchasseur > 0){
         nbchasseur = nbchasseur-1
+        chasseur()
     }
     if (nbchasseur == 0){
         btnsChasseur.disabled =true
     }
 }
 
+function chasseur(){
+
+}
+
+
+/*TODO :
+Fonction voyante
+Fonction LG
+Fonction Chasseur
+Fonction Victoire
+Fonction vote
+
+ */
 
 
 
