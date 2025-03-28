@@ -31,7 +31,9 @@ function preparerpartie(nbjoueurs){
         hchasseur.checked ? nbchasseur = 1 : nbchasseur = 0
 
         //Calculer le nb de villageois
-        nbvillageois = nbjoueurs - nbpf - nbchasseur - nbsorciere - nbvoyante
+        nbvillageois = nbjoueurs - nbpf - nbchasseur - nbsorciere - nbvoyante - nbLG
+
+        haffichage.innerHTML = `Vous devez préparer ${nbLG} loups garous , ${nbpf} petite fille, ${nbvoyante} voyante , ${nbsorciere} sorciere, ${nbchasseur} chasseur et ${nbvillageois} villageois`
 
 
 
