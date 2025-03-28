@@ -34,10 +34,16 @@ function preparerpartie(nbjoueurs){
 
         //Si le nombre de joueurs est superieur ou egal a 12 , on place 3 loups
         nbjoueurs >= 12 ? nbLG=3: nbLG=2
-        nbjoueurs >= 8 || hvoyante.checked ? nbvoyante = 1 : nbvoyante = 0
-        nbjoueurs >= 12 || hsorciere.checked ? nbsorciere = 1 : nbsorciere = 0
-        nbjoueurs >= 14 || hpf.checked ? nbpf = 1 : nbpf = 0
-        hchasseur.checked ? nbchasseur = 1 : nbchasseur = 0
+        nbjoueurs >= 8 || hvoyante.checked ? nbvoyante = 1 : btnsVoyante.disabled =true
+        if (nbjoueurs >= 12 || hsorciere.checked) {
+            nbsorciere = 1
+        }else{
+            btnsSorciere.disabled =true
+            btnpVie.disabled =true
+            btnpMort.disabled =true
+        }
+        nbjoueurs >= 14 || hpf.checked ? nbpf = 1 : btnsPF.disabled = true
+        hchasseur.checked ? nbchasseur = 1 : btnsChasseur.disabled = true
 
         //Calculer le nb de villageois
         nbvillageois = nbjoueurs - nbpf - nbchasseur - nbsorciere - nbvoyante - nbLG
@@ -87,6 +93,49 @@ btnsVillageois.onclick = function (){
     }
     if (nbvillageois == 0){
         btnsVillageois.disabled = true
+    }
+}
+//Supprimer LG
+btnsLG.onclick = function (){
+    if (nbLG > 0){
+        nbLG = nbLG -1
+    }
+    if (nbLG == 0){
+        btnsLG.disabled = true
+    }
+}
+btnsPF.onclick = function (){
+    if (nbpf > 0){
+        nbpf = nbpf-1
+    }
+    if (nbpf == 0){
+        btnsPF.disabled = true
+    }
+}
+btnsVoyante.onclick = function (){
+    if (nbvoyante > 0){
+        nbvoyante = nbvoyante -1
+    }
+    if (nbvoyante == 0){
+        btnsVoyante.disabled = true
+    }
+}
+
+btnsSorciere.onclick = function (){
+    if (nbsorciere > 0){
+        nbsorciere = nbsorciere-1
+    }
+    if (nbsorciere == 0){
+        btnsSorciere.disabled =true
+    }
+}
+
+btnsChasseur.onclick = function (){
+    if (nbchasseur > 0){
+        nbchasseur = nbchasseur-1
+    }
+    if (nbchasseur == 0){
+        btnsChasseur.disabled =true
     }
 }
 
