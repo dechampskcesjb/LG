@@ -15,6 +15,7 @@ var nbpf  = 0
 var nbchasseur = 0
 var nbvillageois = 0
 var nbsorciere = 0
+var potionVie , potionMort = 1
 
 //Fonctions
 
@@ -32,24 +33,28 @@ function preparerpartie(nbjoueurs){
 
         //Calculer le nb de villageois
         nbvillageois = nbjoueurs - nbpf - nbchasseur - nbsorciere - nbvoyante - nbLG
-
         haffichage.innerHTML = `Vous devez préparer ${nbLG} loups garous , ${nbpf} petite fille, ${nbvoyante} voyante , ${nbsorciere} sorciere, ${nbchasseur} chasseur et ${nbvillageois} villageois`
-
-
-
-
-
+        
     }else{
         haffichage.innerHTML = "Le nombre de joueurs est invalide"
     }
 
 }
 
+//Bouton preparer partie
 btnpreparer.onclick = function (){
     var nbjoueurs = hnbjoueurs.value
     preparerpartie(nbjoueurs)
-
 }
+
+//Role Sorciere
+function sorciere() {
+    if (nbsorciere !== 0) {
+        var text = "Vous devez designer la victime des loups garous à la sorciere : Demandez à la sorciere si elle souhaite la sauver"
+
+    }
+}
+
 
 
 
