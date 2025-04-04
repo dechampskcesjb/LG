@@ -17,11 +17,11 @@ const btnpMort = document.getElementById("pmort")
 
 //Affichage des variables
 const vlg = document.getElementById("nblg")
-const vlg = document.getElementById("nbpf")
-const vlg = document.getElementById("nbv")
-const vlg = document.getElementById("nbc")
-const vlg = document.getElementById("nbs")
-const vlg = document.getElementById("nbvi")
+const vpf = document.getElementById("nbpf")
+const vvoyante = document.getElementById("nbv")
+const vchasseur = document.getElementById("nbc")
+const vsorciere = document.getElementById("nbs")
+const vvillageois = document.getElementById("nbvi")
 
 //Variables Globales
 var nbLG = 0
@@ -56,6 +56,13 @@ function preparerpartie(nbjoueurs){
         //Calculer le nb de villageois
         nbvillageois = nbjoueurs - nbpf - nbchasseur - nbsorciere - nbvoyante - nbLG
         haffichage.innerHTML = `Vous devez préparer ${nbLG} loups garous , ${nbpf} petite fille, ${nbvoyante} voyante , ${nbsorciere} sorciere, ${nbchasseur} chasseur et ${nbvillageois} villageois`
+        //Garnir tableau
+        vlg.innerHTML = nbLG
+        vvoyante.innerHTML = nbvoyante
+        vvillageois.innerHTML = nbvillageois
+        vpf.innerHTML = nbpf
+        vsorciere.innerHTML = nbsorciere
+        vchasseur.innerHTML = nbchasseur
         
     }else{
         haffichage.innerHTML = "Le nombre de joueurs est invalide"
@@ -99,6 +106,7 @@ btnpMort.onclick = function (){
 btnsVillageois.onclick = function (){
     if (nbvillageois > 0){
         nbvillageois = nbvillageois -1
+        vvillageois.innerHTML = nbvillageois
     }
     if (nbvillageois == 0){
         btnsVillageois.disabled = true
@@ -109,6 +117,7 @@ btnsVillageois.onclick = function (){
 btnsLG.onclick = function (){
     if (nbLG > 0){
         nbLG = nbLG -1
+        vlg.innerHTML = nbLG
     }
     if (nbLG == 0){
         btnsLG.disabled = true
@@ -119,6 +128,7 @@ btnsLG.onclick = function (){
 btnsPF.onclick = function (){
     if (nbpf > 0){
         nbpf = nbpf-1
+        vpf.innerHTML = nbpf
     }
     if (nbpf == 0){
         btnsPF.disabled = true
@@ -129,6 +139,7 @@ btnsPF.onclick = function (){
 btnsVoyante.onclick = function (){
     if (nbvoyante > 0){
         nbvoyante = nbvoyante -1
+        vvoyante.innerHTML = nbvoyante
     }
     if (nbvoyante == 0){
         btnsVoyante.disabled = true
@@ -139,6 +150,7 @@ btnsVoyante.onclick = function (){
 btnsSorciere.onclick = function (){
     if (nbsorciere > 0){
         nbsorciere = nbsorciere-1
+        vsorciere.innerHTML = nbsorciere
     }
     if (nbsorciere == 0){
         btnsSorciere.disabled =true
@@ -150,6 +162,7 @@ btnsChasseur.onclick = function (){
     if (nbchasseur > 0){
         chasseur()
         nbchasseur = nbchasseur-1
+        vchasseur.innerHTML = nbchasseur
     }
     if (nbchasseur == 0){
         btnsChasseur.disabled =true
