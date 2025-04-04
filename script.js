@@ -15,6 +15,14 @@ const btnsVillageois = document.getElementById("sVillageois")
 const btnpVie = document.getElementById("pvie")
 const btnpMort = document.getElementById("pmort")
 
+//Affichage des variables
+const vlg = document.getElementById("nblg")
+const vlg = document.getElementById("nbpf")
+const vlg = document.getElementById("nbv")
+const vlg = document.getElementById("nbc")
+const vlg = document.getElementById("nbs")
+const vlg = document.getElementById("nbvi")
+
 //Variables Globales
 var nbLG = 0
 var nbvoyante = 0
@@ -66,6 +74,7 @@ function sorciere() {
     if (nbsorciere !== 0) {
         var text = "Vous devez designer la victime des loups garous à la sorciere : Demandez à la sorciere si elle souhaite la sauver ; Ensuite si elle souhaite utiliser sa potion de mort, elle doit designer une victime"
 
+        haffichage.innerHTML = text
 
     }
 }
@@ -94,6 +103,7 @@ btnsVillageois.onclick = function (){
     if (nbvillageois == 0){
         btnsVillageois.disabled = true
     }
+    victoire()
 }
 //Supprimer LG
 btnsLG.onclick = function (){
@@ -103,7 +113,9 @@ btnsLG.onclick = function (){
     if (nbLG == 0){
         btnsLG.disabled = true
     }
+    victoire()
 }
+//Supprimer PF
 btnsPF.onclick = function (){
     if (nbpf > 0){
         nbpf = nbpf-1
@@ -111,7 +123,9 @@ btnsPF.onclick = function (){
     if (nbpf == 0){
         btnsPF.disabled = true
     }
+    victoire()
 }
+//Suppression Voyante
 btnsVoyante.onclick = function (){
     if (nbvoyante > 0){
         nbvoyante = nbvoyante -1
@@ -119,8 +133,9 @@ btnsVoyante.onclick = function (){
     if (nbvoyante == 0){
         btnsVoyante.disabled = true
     }
+    victoire()
 }
-
+// Suppression Sorciere
 btnsSorciere.onclick = function (){
     if (nbsorciere > 0){
         nbsorciere = nbsorciere-1
@@ -128,30 +143,61 @@ btnsSorciere.onclick = function (){
     if (nbsorciere == 0){
         btnsSorciere.disabled =true
     }
+    victoire()
 }
-
+//Suppression Chasseur
 btnsChasseur.onclick = function (){
     if (nbchasseur > 0){
-        nbchasseur = nbchasseur-1
         chasseur()
+        nbchasseur = nbchasseur-1
     }
     if (nbchasseur == 0){
         btnsChasseur.disabled =true
     }
+    victoire()
 }
 
 function chasseur(){
+    if (nbchasseur !== 0){
+        haffichage.innerHTML = "Le chasseur choisit une victime qu'il emportera avec lui"
+    }
+}
 
+function voyante(){
+    if (nbvoyante !== 0){
+        haffichage.innerHTML = "La voyante choisit un joueur dont elle veut connaitre le role"
+    }
+}
+
+function loupsgarous(){
+    if (nbLG !== 0){
+        if (nbLG == 1){
+            haffichage.innerHTML = "Le loup garou choisit sa victime"
+        }else {
+            haffichage.innerHTML = "Les loups garous choissent une victime"
+        }
+    }
+}
+
+function vote(){
+    haffichage.innerHTML = "Le village décide de la prochaine victime"
+}
+
+function victoire(){
+    // On gagne quand : nblg == 0 , nblg >= villageois
+    var villageois = nbpf + nbvillageois +nbvoyante + nbsorciere +nbchasseur
+    if (nbLG == 0){
+        haffichage.innerHTML = "Le village remporte la victoire"
+    }
+    if (nbLG > villageois){
+        haffichage.innerHTML = "Les loups garous ont gagné"
+    }
 }
 
 
 /*TODO :
-Fonction voyante
-Fonction LG
-Fonction Chasseur
-Fonction Victoire
-Fonction vote
-
+Verifier victoire en cas de chasseur dernier joueur
+Boucle
  */
 
 
