@@ -14,6 +14,7 @@ const btnsChasseur = document.getElementById("sChasseur")
 const btnsVillageois = document.getElementById("sVillageois")
 const btnpVie = document.getElementById("pvie")
 const btnpMort = document.getElementById("pmort")
+const av = document.getElementById("av")
 
 //Affichage des variables
 const vlg = document.getElementById("nblg")
@@ -32,6 +33,9 @@ var nbvillageois = 0
 var nbsorciere = 0
 var potionVie  = 1
 var potionMort  = 1
+
+//Etapes de la partie
+var avancement = 1
 
 //Fonctions
 
@@ -76,15 +80,7 @@ btnpreparer.onclick = function (){
     preparerpartie(nbjoueurs)
 }
 
-//Role Sorciere
-function sorciere() {
-    if (nbsorciere !== 0) {
-        var text = "Vous devez designer la victime des loups garous à la sorciere : Demandez à la sorciere si elle souhaite la sauver ; Ensuite si elle souhaite utiliser sa potion de mort, elle doit designer une victime"
-
-        haffichage.innerHTML = text
-
-    }
-}
+/* Boutons de suppression */
 btnpVie.onclick = function (){
     if (potionVie > 0){
         potionVie = potionVie- 1
@@ -169,19 +165,19 @@ btnsChasseur.onclick = function (){
     }
     victoire()
 }
-
+//role chasseur
 function chasseur(){
     if (nbchasseur !== 0){
         haffichage.innerHTML = "Le chasseur choisit une victime qu'il emportera avec lui"
     }
 }
-
+//Role voyante
 function voyante(){
     if (nbvoyante !== 0){
         haffichage.innerHTML = "La voyante choisit un joueur dont elle veut connaitre le role"
     }
 }
-
+//role Loup garou
 function loupsgarous(){
     if (nbLG !== 0){
         if (nbLG == 1){
@@ -189,6 +185,15 @@ function loupsgarous(){
         }else {
             haffichage.innerHTML = "Les loups garous choissent une victime"
         }
+    }
+}
+//Role Sorciere
+function sorciere() {
+    if (nbsorciere !== 0) {
+        var text = "Vous devez designer la victime des loups garous à la sorciere : Demandez à la sorciere si elle souhaite la sauver ; Ensuite si elle souhaite utiliser sa potion de mort, elle doit designer une victime"
+
+        haffichage.innerHTML = text
+
     }
 }
 
@@ -207,9 +212,32 @@ function victoire(){
     }
 }
 
+//avancement de la partie
+
+function partie(etape){
+
+    switch (etape) {
+        //Etape 1 : La voyante
+        case 1 : {
+            voyante()
+            avancement ++
+        }
+        break
+        //Etape Loups garous
+        case 2 : {
+            loupsgarous()
+            avancement ++
+        }
+        break
+    }
+
+}
+
+av.onclick = function(){
+    partie(avancement)
+}
 
 /*TODO :
-Verifier victoire en cas de chasseur dernier joueur
 Boucle
  */
 
