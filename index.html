@@ -21,38 +21,46 @@
 </head>
 <body>
 <div class="container-md">
+    <h1 class="text-center">Loup Garou : Aide au maitre de jeu</h1>
     <div class="row">
-        <div class="col-sm m-5">
+        <div class="col-sm-6 ">
             <div class="form-outline"  data-mdb-input-init>
                 <input class="form-control m-0" type="number" id="nbjoueurs" min="8" max="18">
                 <label for="nbjoueurs" class="form-label">Nombre de joueurs</label>
             </div>
-            <div class="text-center">
-                <div class="form-check d-inline-block">
-                    <label for="voyante" class="form-check-label">Voyante</label>
-                    <input type="checkbox" id="voyante" class="form-check-input">
-                </div>
-                <div class="form-check d-inline-block">
-                    <label for="sorciere" class="form-check-label">Sorciere</label>
-                    <input type="checkbox"  class="form-check-input" id="sorciere">
-                </div>
-                <div class="form-check d-inline-block">
-                    <label for="pf" class="form-check-label">Petite Fille</label>
-                    <input type="checkbox" class="form-check-input" id="pf">
-                </div>
-                <div class="form-check d-inline-block">
-                    <label for="chasseur" class="form-check-label">Chasseur</label>
-                    <input type="checkbox" class="form-check-input" id="chasseur">
-                </div>
+            <div class="d-grid m-5">
+                <button id="preparer" class="btn btn-primary">Preparer la partie</button>
             </div>
-
-
-
-
-
-
         </div>
-        <button id="preparer" class="btn btn-primary">Preparer la partie</button>
+        <div class="col-sm-6 ">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <div class="form-check">
+                        <label for="voyante" class="form-check-label">Voyante</label>
+                        <input type="checkbox" id="voyante" class="form-check-input">
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="form-check">
+                        <label for="sorciere" class="form-check-label">Sorciere</label>
+                        <input type="checkbox"  class="form-check-input" id="sorciere">
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="form-check">
+                        <label for="pf" class="form-check-label">Petite Fille</label>
+                        <input type="checkbox" class="form-check-input" id="pf">
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="form-check">
+                        <label for="chasseur" class="form-check-label">Chasseur</label>
+                        <input type="checkbox" class="form-check-input" id="chasseur">
+                    </div>
+                </li>
+            </ul>
+        </div>
+
     </div>
 </div>
 
@@ -61,16 +69,18 @@
         <p id="affichage"></p>
 
         <div>
-            <div>
+            <div class="text-center">
                 <h2>Sorcière</h2>
-                <button id="pvie" class="btn btn-success btn-rounded">Utiliser potion de vie</button>
-                <button id="pmort" class="btn btn-dark btn-rounded">Utiliser potion de mort</button>
-                <button id="sSorciere" class="btn btn-danger btn-rounded">Supprimer une sorciere</button>
+                <div class="btn-group">
+                    <button id="pvie" class="btn btn-success btn-rounded">Utiliser potion de vie</button>
+                    <button id="pmort" class="btn btn-dark btn-rounded">Utiliser potion de mort</button>
+                    <button id="sSorciere" class="btn btn-danger btn-rounded">Supprimer une sorciere</button>
+                </div>
 
             </div>
 
             <button id="sVillageois" class="btn btn-danger btn-rounded">Supprimer un villageois</button>
-            <button id="sLG" class="btn btn-danger btn-rounded">Supprimer un Loup Garou</button>
+            <button id="sLG" class="btn btn-danger btn-rounded ">Supprimer un Loup Garou <i class="fas fa-paw"></i></button>
             <button id="sVoyante" class="btn btn-danger btn-rounded">Supprimer une voyante</button>
             <button id="sChasseur" class="btn btn-danger btn-rounded">Supprimer un chasseur</button>
             <button id="sPF" class="btn btn-danger btn-rounded">Supprimer une petite fille</button>
@@ -85,7 +95,7 @@
         <p>Nombre de villageois <strong id="nbvi"></strong></p>
     </div>
 
-    <button id="av">test</button>
+    <button id="av" class="btn btn-rounded" style="background: #FF4081">Passer a l'etape suivante</button>
 
 
 </div>

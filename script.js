@@ -219,6 +219,9 @@ function partie(etape){
     switch (etape) {
         //Etape 1 : La voyante
         case 1 : {
+            if (nbvoyante > 0){
+
+            }
             voyante()
             avancement ++
         }
@@ -229,19 +232,27 @@ function partie(etape){
             avancement ++
         }
         break
+        case 3 : {
+            sorciere()
+            avancement ++
+        }
+        break
+        case 4 : {
+            vote()
+            avancement ++
+        }
+        break
+        case 5 : {
+            avancement ++
+        }
+        break
+        case 6 : {
+            avancement = 1
+        }
+        break
     }
-
 }
 
 av.onclick = function(){
     partie(avancement)
 }
-
-/*TODO :
-Boucle
- */
-
-
-
-
-
